@@ -1,9 +1,10 @@
-import { EmailAuthCredential } from 'firebase/auth';
+// import { EmailAuthCredential } from 'firebase/auth';
 import './sign-up-form.styles.scss'
 import Button from '../button/button.component'
 import FormInput from '../form-input/form-input.component.jsx'
 import {useState} from 'react';
 import {createAuthUserWithEmailAndPassword, createUserDocumentFromAuth} from '../../utilites/firebase/firebase.utilites.js'
+
 const defaultFormFields = {
     displayName: '',
     email: '',
