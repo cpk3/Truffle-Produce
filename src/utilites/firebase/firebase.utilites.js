@@ -7,7 +7,9 @@ import {getAuth,
         signInWithPopup, 
         createUserWithEmailAndPassword,
         signInWithEmailAndPassword,
-        GoogleAuthProvider} from 'firebase/auth';
+        GoogleAuthProvider, 
+        signOut,
+        onAuthStateChanged} from 'firebase/auth';
 import {
     getFirestore,
     doc, 
@@ -87,3 +89,14 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
   
     return await signInWithEmailAndPassword (auth, email, password);
   };
+
+  export const signOutUser = () => signOut(auth);
+
+  //if sign in or out - auth changes = runs this function. need to tell function to stop listening 
+  export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback)
+
+  //listener models listen for changes using 
+  /** next: callback  -->eg. used
+   * error: errorCallback
+   * complete: completedCallback
+   */
